@@ -129,7 +129,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-MASK_RCNN_MODEL = models.detection.maskrcnn_resnet50_fpn(pretrained=True)
+MASK_RCNN_MODEL = models.detection.maskrcnn_resnet50_fpn(weights=models.detection.MaskRCNN_ResNet50_FPN_Weights.DEFAULT)
 MASK_RCNN_MODEL.eval()
 
 YOLO_V8_MODEL = YOLO('yolov8x.pt')
