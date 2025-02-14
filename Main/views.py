@@ -106,8 +106,8 @@ def index_view(request):
             detected_labels_en = [coco_categories[label] for label in labels]
             detected_labels_hi = [get_translated_label(coco_categories[label]) for label in labels]
             scores_hi = [get_translated_label(str(score)) for score in scores]
-            detected_objects_en = [{'label': label, 'score': score} for label, score in zip(detected_labels_en, scores)]
-            detected_objects_hi = [{'label': label, 'score': score} for label, score in zip(detected_labels_hi, scores_hi)]
+            detected_objects_en = [{'label': label, 'score': round(score * 100, 2)} for label, score in zip(detected_labels_en, scores)]
+            detected_objects_hi = [{'label': label, 'score': round(score * 100, 2)} for label, score in zip(detected_labels_hi, scores_hi)]
             model_name = 'Mask RCNN'
 
         else:
